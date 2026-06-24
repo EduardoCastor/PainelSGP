@@ -102,14 +102,9 @@
                     </div>
                 </a>
 
-            </div>
-        </section>
-
-        <!-- ── VIEW: PRÉ-ATENDIMENTO ──────────────────── -->
-        <section class="view" id="viewPre">
-            <div class="inner-card">
-                <div class="inner-header">
-                    <div class="inner-icon icon-pre">
+                <a href="https://notebooklm.google.com/notebook/62a816b0-4003-4eda-9fc5-3bbd10c6a30e" target="_blank"
+                    rel="noopener" class="card-btn card-pre">
+                    <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                             <polyline points="14 2 14 8 20 8" />
@@ -117,98 +112,20 @@
                             <line x1="9" y1="14" x2="15" y2="14" />
                         </svg>
                     </div>
-                    <div>
-                        <h2>Pré-Atendimento</h2>
-                        <p>Cadastro e triagem inicial do cidadão</p>
+                    <div class="card-text">
+                        <strong>SGP Conecta: Seu Canal de Apoio</strong>
+                        <span>Por aqui, você pode tirar dúvidas sobre a sua rotina de trabalho de forma rápida e prática.</span>
                     </div>
-                </div>
+                    <div class="card-arrow"><svg viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg></div>
 
-                <form id="formPre" novalidate>
-
-                    <div class="field-group">
-                        <label for="preData">Data do Atendimento</label>
-                        <input type="date" id="preData" required>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="preProtocolo">Protocolo / Atendimento</label>
-                        <select id="preProtocolo" required>
-                            <option value="">Carregando...</option>
-                        </select>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="preResposta">Resposta do Atendimento</label>
-                        <textarea id="preResposta" name="resposta" placeholder="Descreva a resposta para o atendimento"
-                            required></textarea>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="preStatus">Status</label>
-                        <select id="preStatus" required>
-                            <option value="">Selecione o status</option>
-                            <option value="Pronto para Atendimento">Pronto para Atendimento</option>
-                            <option value="Atendido">Atendido</option>
-                            <option value="Ausente">Ausente</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-confirm">Confirmar</button>
-                </form>
-
-                <div id="statusPre" class="feedback hidden"></div>
+                    
             </div>
         </section>
 
-        <!-- ── VIEW: ATENDIMENTOS ─────────────────────── -->
-        <section class="view" id="viewAtend">
-            <div class="inner-card">
-                <div class="inner-header">
-                    <div class="inner-icon icon-atend">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h2>Atendimentos</h2>
-                        <p>Agendamento e acompanhamento de serviços</p>
-                    </div>
-                </div>
 
-                <form id="formAtend" novalidate>
-
-                    <div class="field-group">
-                        <label for="atendProtocolo">Protocolo / Atendimento</label>
-                        <select id="atendProtocolo" required>
-                            <option value="">Selecione um atendimento</option>
-                        </select>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="atendResposta">Resposta do Atendimento</label>
-                        <textarea id="atendResposta" name="resposta" placeholder="Resposta do atendimento"
-                            readonly></textarea>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="atendStatus">Status</label>
-                        <select id="atendStatus" required>
-                            <option value="">Selecione o status</option>
-                            <option value="Atendido">Atendido</option>
-                            <option value="Atrasado">Atrasado</option>
-                            <option value="Ausente">Ausente</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-confirm">Confirmar</button>
-                </form>
-
-                <div id="statusAtend" class="feedback hidden"></div>
-            </div>
-        </section>
+    
 
     </main>
 
