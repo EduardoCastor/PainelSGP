@@ -247,9 +247,9 @@ body.sub-active .header-title {
 /* card themes */
 .card-pre {
     background: linear-gradient(135deg,
-            #f1a604,
-            #ffc64a 60%,
-            #ffee01);
+        #cc3f00,
+        #ff4f00 60%,
+        #ff7233);
     box-shadow: 0 10px 32px var(--pre-glow);
 }
 
