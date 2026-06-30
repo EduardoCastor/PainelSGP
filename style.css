@@ -248,7 +248,7 @@ body.sub-active .header-title {
 .card-pre {
     background: linear-gradient(135deg,
         #cc3f00,
-        #ff4f00 60%,
+        #ff8300 60%,
         #ff7233);
     box-shadow: 0 10px 32px var(--pre-glow);
 }
