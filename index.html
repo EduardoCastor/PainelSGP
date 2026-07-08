@@ -21,6 +21,9 @@
         <div class="header-logo">
             <img src="assets/logo.webp" alt="Brasão de Cabo Frio">
         </div>
+        <div class="header-middle">
+            <span>Superintendência de Gestão de Pessoas</span>
+        </div>
         <div class="header-title">
             <h1>Cabo Frio</h1>
             <p>Secretaria municipal <br>de educação</p>
@@ -42,7 +45,7 @@
             <div class="cards-wrapper">
 
                 <a href="https://notebooklm.google.com/notebook/62a816b0-4003-4eda-9fc5-3bbd10c6a30e" target="_blank"
-                    rel="noopener" class="card-btn card-pre">
+                    rel="noopener" class="card-btn card-pre" id="btnNotebook">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -53,16 +56,17 @@
                     </div>
                     <div class="card-text">
                         <strong>SGP Conecta: Seu Canal de Apoio</strong>
-                        <span>Por aqui, você pode tirar dúvidas sobre a sua rotina de trabalho de forma rápida e prática.</span>
+                        <span>Por aqui, você pode tirar dúvidas sobre a sua rotina de trabalho de forma rápida e
+                            prática.</span>
                     </div>
                     <div class="card-arrow"><svg viewBox="0 0 24 24">
                             <polyline points="9 18 15 12 9 6" />
                         </svg></div>
                 </a>
 
-                
-                <a href="https://semeagendamento.beaverstraining.com.br" target="_blank"
-                    rel="noopener" class="card-btn card-atend">
+
+                <a href="https://semeagendamento.beaverstraining.com.br" target="_blank" rel="noopener"
+                    class="card-btn card-atend">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -80,8 +84,8 @@
                         </svg></div>
                 </a>
 
-                <a href="https://carregadocumentos.beaverstraining.com.br/" target="_blank"
-                    rel="noopener" class="card-btn card-rel">
+                <a href="https://carregadocumentos.beaverstraining.com.br/" target="_blank" rel="noopener"
+                    class="card-btn card-rel">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -92,7 +96,8 @@
                     </div>
                     <div class="card-text">
                         <strong>Envio de Documentos</strong>
-                        <span>Encaminhamento de documentos relativos a processos do SGP abertos no Protocolo da SEME</span>
+                        <span>Encaminhamento de documentos relativos a processos do SGP abertos no Protocolo da
+                            SEME</span>
                     </div>
                     <div class="card-arrow">
                         <svg viewBox="0 0 24 24">
@@ -103,9 +108,9 @@
                     </div>
                 </a>
 
-                
-                <a href="https://balcaovirtual.beaverstraining.com.br" target="_blank"
-                    rel="noopener" class="card-btn card-pre">
+
+                <a href="https://balcaovirtual.beaverstraining.com.br" target="_blank" rel="noopener"
+                    class="card-btn card-pre">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -121,19 +126,88 @@
                     <div class="card-arrow"><svg viewBox="0 0 24 24">
                             <polyline points="9 18 15 12 9 6" />
                         </svg></div>
-               </a>
+                </a>
 
 
-                    
+
             </div>
         </section>
 
 
-    
+
 
     </main>
 
+    <!-- ═══════════════════════════════════════ MODAL: AVISO DE LOGIN -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+            </div>
+            <h3>Atenção</h3>
+            <p>Para acessar a página a seguir, você deve estar logado em um e-mail cadastrado e autorizado da
+                <strong>Superintendência de Gestão de Pessoas</strong>.
+            </p>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-primary" id="modalLoggedIn">Estou logado</button>
+                <button class="modal-btn modal-btn-secondary" id="modalWantLogin">Quero logar</button>
+                <button class="modal-btn modal-btn-ghost" id="modalNotLogged">Não estou logado</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        (function () {
+            var notebookBtn = document.getElementById('btnNotebook');
+            var modal = document.getElementById('loginModal');
+            var btnLoggedIn = document.getElementById('modalLoggedIn');
+            var btnWantLogin = document.getElementById('modalWantLogin');
+            var btnNotLogged = document.getElementById('modalNotLogged');
+            var targetUrl = '';
+
+            if (!notebookBtn || !modal) return;
+
+            function openModal() {
+                targetUrl = notebookBtn.getAttribute('href');
+                modal.classList.add('show');
+            }
+
+            function closeModal() {
+                modal.classList.remove('show');
+            }
+
+            notebookBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                openModal();
+            });
+
+            btnLoggedIn.addEventListener('click', function () {
+                window.open(targetUrl, '_blank', 'noopener');
+                closeModal();
+            });
+
+            btnWantLogin.addEventListener('click', function () {
+                window.open('https://accounts.google.com/v3/signin/identifier?dsh=S488133362%3A1783516615762651&hl=pt-BR&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AcDsRvyygCDCfktD2ZPTydN2oIkMa9zjdpAjNrYPmVnGoZodU_XQg0jhrWJq9fq78x1KilPvrjEcXQ', '_blank', 'noopener');
+                closeModal();
+            });
+
+            btnNotLogged.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        })();
+    </script>
 </body>
 
 </html>
