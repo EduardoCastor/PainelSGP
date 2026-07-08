@@ -95,6 +95,19 @@ header::after {
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .10));
 }
 
+.header-middle {
+    flex: 1;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.header-middle span {
+    font-size: clamp(13px, 1.5vw, 19px);
+    font-weight: 700;
+    color: var(--blue1);
+    letter-spacing: .2px;
+}
+
 .header-title {
     text-align: right;
 }
@@ -247,9 +260,9 @@ body.sub-active .header-title {
 /* card themes */
 .card-pre {
     background: linear-gradient(135deg,
-        #cc3f00,
-        #ff8300 60%,
-        #ff7233);
+            #cc3f00,
+            #ff8300 60%,
+            #ff7233);
     box-shadow: 0 10px 32px var(--pre-glow);
 }
 
@@ -526,6 +539,151 @@ body.sub-active .header-title {
 }
 
 /* ═══════════════════════════════════════════════════════
+   MODAL: AVISO DE LOGIN
+═══════════════════════════════════════════════════════ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 30, 48, .55);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background: #fff;
+    width: 100%;
+    max-width: 440px;
+    border-radius: var(--radius-card);
+    box-shadow: 0 26px 64px rgba(0, 0, 0, .28);
+    padding: 38px 34px 32px;
+    text-align: center;
+    transform: translateY(24px) scale(.95);
+    transition: transform var(--transition);
+}
+
+.modal-overlay.show .modal-card {
+    transform: translateY(0) scale(1);
+}
+
+.modal-icon {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fef3c7;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, .18);
+}
+
+.modal-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: #d97706;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.modal-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -.2px;
+    margin-bottom: 12px;
+}
+
+.modal-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-mid);
+    margin-bottom: 26px;
+}
+
+.modal-card p strong {
+    color: var(--text-dark);
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius-field);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.modal-btn-primary {
+    background: var(--blue1);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(9, 117, 181, .28);
+}
+
+.modal-btn-primary:hover {
+    background: #085f96;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(9, 117, 181, .34);
+}
+
+.modal-btn-secondary {
+    background: #fff;
+    color: var(--text-mid);
+    border: 1.5px solid #e2e8f0;
+}
+
+.modal-btn-secondary:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.modal-btn-ghost {
+    background: transparent;
+    color: #94a3b8;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.modal-btn-ghost:hover {
+    color: var(--text-mid);
+}
+
+.modal-btn:active {
+    transform: scale(.98);
+}
+
+@media (max-width: 640px) {
+    .modal-card {
+        padding: 30px 22px 26px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 640px) {
@@ -573,6 +731,10 @@ body.sub-active .header-title {
         left: 20px;
         font-size: 13px;
         padding: 7px 14px 7px 10px;
+    }
+
+    .header-middle {
+        display: none;
     }
 
     #viewHome {
